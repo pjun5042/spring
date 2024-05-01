@@ -77,7 +77,7 @@ public class UserController {
 		HttpSession session = req.getSession();
 		if(service.login(userid, userpw)) {
 			session.setAttribute("loginUser", userid);
-			return "redirect:/board/list";
+			return ":/board/list";
 		}
 		else {
 			//
