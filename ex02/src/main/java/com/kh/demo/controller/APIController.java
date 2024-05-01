@@ -42,7 +42,7 @@ public class APIController {
 		InputStreamReader isr = new InputStreamReader(is);
 		
 		BufferedReader br = new BufferedReader(isr);
-		
+		// 깃허브 테스트
 		String result = "";
 		String line = "";
 		while(true) {
