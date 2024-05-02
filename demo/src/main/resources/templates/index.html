@@ -8,6 +8,8 @@
 <body class="login">
 	<th:block th:if="${session.loginUser != null}">
 		<script>
+			console.log("test");
+			console.log('${session.loginUser}');
 			location.replace("/board/list")
 		</script>
 	</th:block>
