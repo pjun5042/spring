@@ -43,12 +43,14 @@
 </body>
 <th:block th:if="${joinid != null}">
 	<script th:inline="javascript">
-		window.setTimeout(function(){
+		window.onload = function() {
 			let joinid = /*[[${joinid}]]*/'';
-			alert(`${joinid}님 가입을 환영합니다~`);
-			document.loginForm.userid.value = joinid;
-			document.loginForm.userpw.focus();
-		},1300)
+			alert(joinid + '님 가입을 환영합니다~');
+			setTimeout(function(){
+				document.loginForm.userid.value = joinid;
+				document.loginForm.userpw.focus();
+			}, 1300);
+		};
 	</script>
 </th:block>
 <script>
