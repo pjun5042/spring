@@ -78,7 +78,7 @@ public class UserController {
 		if(service.login(userid, userpw)) {
 //			session.setAttribute("loginUser", userid);
 //			return "redirect:/board/list";
-//		}
+		}
 //		else {
 //			//
 //		}
