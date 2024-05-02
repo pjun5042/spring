@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>최종 예제 게시판</title>
-<link rel="stylesheet" href="../static/css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="login">
 	<th:block th:if="${session.loginUser != null}">
 		<script>
-			location.replace("../board/list")
+			location.replace("/board/list")
 		</script>
 	</th:block>
 	<div id="wrap" class="login">
