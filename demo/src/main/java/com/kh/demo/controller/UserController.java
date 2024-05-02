@@ -75,7 +75,7 @@ public class UserController {
 	@PostMapping("login")
 	public String login(String userid, String userpw, HttpServletRequest req) {
 		HttpSession session = req.getSession();
-//		if(service.login(userid, userpw)) {
+		if(service.login(userid, userpw)) {
 //			session.setAttribute("loginUser", userid);
 //			return "redirect:/board/list";
 //		}
