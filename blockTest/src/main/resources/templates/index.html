@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MapleStory Characters</title>
+    <style>
+        .block {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+        }
+        .empty-block {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            position: absolute;
+        }
+        .map-container {
+            position: relative;
+        }
+        .map {
+            width: 1100px;
+            height: 1000px;
+            border: 1px solid black;
+            margin: 0 auto;
+            position: relative;
+        }
+		[class ^="block 전사"] {
+		    background-color: blue;
+		}
+		[class ^="block 마법사"] {
+		    background-color: green;
+		}
+		[class ^="block 궁수"], [class ^="block 메이플"] {
+		    background-color: orange;
+		}
+		[class ^="block 도적"], [class ^="block 하이브리드"] {
+		    background-color: purple;
+		}
+		[class ^="block 해적"] {
+		    background-color: brown;
+		}
+
+    </style>
+</head>
+<body>
+    <div class="map-container">
+        <div class="map">
+            <!-- Blocks will be added here -->
+        </div>
+    </div>
+    <script>
+        // Block data
+        var blockData = [
+            {"block_type":"메이플 M 캐릭터","block_class":"모바일 캐릭터","block_level":"202","block_control_point":{"x":3,"y":0},"block_position":[{"x":1,"y":0},{"x":4,"y":0},{"x":2,"y":0},{"x":3,"y":0}]},
+			{"block_type":"도적","block_class":"팬텀","block_level":"238","block_control_point":{"x":-8,"y":4},"block_position":[{"x":-9,"y":5},{"x":-7,"y":4},{"x":-9,"y":4},{"x":-8,"y":4}]},{"block_type":"궁수","block_class":"와일드헌터","block_level":"209","block_control_point":{"x":10,"y":-8},"block_position":[{"x":10,"y":-6},{"x":10,"y":-9},{"x":10,"y":-7},{"x":10,"y":-8}]},{"block_type":"궁수","block_class":"메르세데스","block_level":"260","block_control_point":{"x":8,"y":0},"block_position":[{"x":6,"y":0},{"x":10,"y":0},{"x":7,"y":0},{"x":9,"y":0},{"x":8,"y":0}]},{"block_type":"하이브리드","block_class":"제논","block_level":"209","block_control_point":{"x":-11,"y":-3},"block_position":[{"x":-10,"y":-2},{"x":-11,"y":-4},{"x":-11,"y":-2},{"x":-11,"y":-3}]},{"block_type":"해적","block_class":"메카닉","block_level":"250","block_control_point":{"x":-7,"y":-8},"block_position":[{"x":-9,"y":-7},{"x":-8,"y":-7},{"x":-6,"y":-8},{"x":-7,"y":-7},{"x":-7,"y":-8}]},{"block_type":"마법사","block_class":"에반","block_level":"215","block_control_point":{"x":-9,"y":7},"block_position":[{"x":-8,"y":7},{"x":-9,"y":8},{"x":-9,"y":6},{"x":-9,"y":7}]},{"block_type":"전사","block_class":"데몬어벤져","block_level":"250","block_control_point":{"x":-1,"y":-4},"block_position":[{"x":-1,"y":-6},{"x":-2,"y":-5},{"x":-2,"y":-4},{"x":-1,"y":-5},{"x":-1,"y":-4}]},{"block_type":"전사","block_class":"팔라딘","block_level":"250","block_control_point":{"x":-3,"y":-4},"block_position":[{"x":-3,"y":-2},{"x":-4,"y":-3},{"x":-4,"y":-4},{"x":-3,"y":-3},{"x":-3,"y":-4}]},{"block_type":"마법사","block_class":"일리움","block_level":"283","block_control_point":{"x":-10,"y":-5},"block_position":[{"x":-11,"y":-5},{"x":-9,"y":-5},{"x":-10,"y":-6},{"x":-10,"y":-4},{"x":-10,"y":-5}]},{"block_type":"마법사","block_class":"루미너스","block_level":"220","block_control_point":{"x":-8,"y":1},"block_position":[{"x":-8,"y":0},{"x":-7,"y":1},{"x":-9,"y":1},{"x":-8,"y":1}]},{"block_type":"해적","block_class":"캡틴","block_level":"282","block_control_point":{"x":5,"y":-1},"block_position":[{"x":6,"y":-3},{"x":6,"y":-2},{"x":5,"y":0},{"x":6,"y":-1},{"x":5,"y":-1}]},{"block_type":"마법사","block_class":"키네시스","block_level":"220","block_control_point":{"x":9,"y":-7},"block_position":[{"x":8,"y":-7},{"x":9,"y":-6},{"x":9,"y":-8},{"x":9,"y":-7}]},{"block_type":"전사","block_class":"아란","block_level":"215","block_control_point":{"x":9,"y":-2},"block_position":[{"x":10,"y":-3},{"x":10,"y":-2},{"x":9,"y":-3},{"x":9,"y":-2}]},{"block_type":"해적","block_class":"아크","block_level":"220","block_control_point":{"x":7,"y":-5},"block_position":[{"x":6,"y":-4},{"x":7,"y":-6},{"x":6,"y":-5},{"x":7,"y":-5}]},{"block_type":"전사","block_class":"블래스터","block_level":"226","block_control_point":{"x":9,"y":-4},"block_position":[{"x":10,"y":-5},{"x":9,"y":-5},{"x":10,"y":-4},{"x":9,"y":-4}]},{"block_type":"궁수","block_class":"신궁","block_level":"220","block_control_point":{"x":8,"y":-4},"block_position":[{"x":8,"y":-6},{"x":8,"y":-3},{"x":8,"y":-5},{"x":8,"y":-4}]},{"block_type":"도적","block_class":"나이트로드","block_level":"220","block_control_point":{"x":-9,"y":-3},"block_position":[{"x":-8,"y":-2},{"x":-10,"y":-3},{"x":-8,"y":-3},{"x":-9,"y":-3}]},{"block_type":"전사","block_class":"카이저","block_level":"220","block_control_point":{"x":-8,"y":2},"block_position":[{"x":-7,"y":3},{"x":-8,"y":3},{"x":-7,"y":2},{"x":-8,"y":2}]},{"block_type":"마법사","block_class":"비숍","block_level":"267","block_control_point":{"x":-9,"y":-1},"block_position":[{"x":-8,"y":-1},{"x":-10,"y":-1},{"x":-9,"y":-2},{"x":-9,"y":0},{"x":-9,"y":-1}]},{"block_type":"전사","block_class":"제로","block_level":"277","block_control_point":{"x":5,"y":-2},"block_position":[{"x":5,"y":-4},{"x":4,"y":-3},{"x":4,"y":-2},{"x":5,"y":-3},{"x":5,"y":-2}]},{"block_type":"마법사","block_class":"플레임위자드","block_level":"202","block_control_point":{"x":-11,"y":-7},"block_position":[{"x":-10,"y":-7},{"x":-11,"y":-8},{"x":-11,"y":-6},{"x":-11,"y":-7}]},{"block_type":"마법사","block_class":"아크메이지(썬,콜)","block_level":"218","block_control_point":{"x":-8,"y":-4},"block_position":[{"x":-8,"y":-5},{"x":-9,"y":-4},{"x":-7,"y":-4},{"x":-8,"y":-4}]},{"block_type":"해적","block_class":"스트라이커","block_level":"220","block_control_point":{"x":-1,"y":0},"block_position":[{"x":-2,"y":-1},{"x":0,"y":0},{"x":-1,"y":-1},{"x":-1,"y":0}]},{"block_type":"전사","block_class":"히어로","block_level":"200","block_control_point":{"x":-10,"y":2},"block_position":[{"x":-9,"y":3},{"x":-9,"y":2},{"x":-10,"y":3},{"x":-10,"y":2}]},{"block_type":"해적","block_class":"바이퍼","block_level":"220","block_control_point":{"x":-11,"y":9},"block_position":[{"x":-10,"y":8},{"x":-11,"y":10},{"x":-10,"y":9},{"x":-11,"y":9}]},{"block_type":"해적","block_class":"캐논마스터","block_level":"220","block_control_point":{"x":-10,"y":7},"block_position":[{"x":-11,"y":8},{"x":-10,"y":6},{"x":-11,"y":7},{"x":-10,"y":7}]},{"block_type":"전사","block_class":"아델","block_level":"220","block_control_point":{"x":-2,"y":-3},"block_position":[{"x":-1,"y":-2},{"x":-2,"y":-2},{"x":-1,"y":-3},{"x":-2,"y":-3}]},{"block_type":"해적","block_class":"엔젤릭버스터","block_level":"215","block_control_point":{"x":-10,"y":0},"block_position":[{"x":-11,"y":-1},{"x":-10,"y":1},{"x":-11,"y":0},{"x":-10,"y":0}]},{"block_type":"궁수","block_class":"보우마스터","block_level":"220","block_control_point":{"x":-11,"y":3},"block_position":[{"x":-11,"y":1},{"x":-11,"y":4},{"x":-11,"y":2},{"x":-11,"y":3}]},{"block_type":"궁수","block_class":"윈드브레이커","block_level":"220","block_control_point":{"x":-7,"y":-1},"block_position":[{"x":-7,"y":-3},{"x":-7,"y":0},{"x":-7,"y":-2},{"x":-7,"y":-1}]},{"block_type":"마법사","block_class":"배틀메이지","block_level":"220","block_control_point":{"x":-10,"y":-9},"block_position":[{"x":-10,"y":-8},{"x":-11,"y":-9},{"x":-9,"y":-9},{"x":-10,"y":-9}]},{"block_type":"궁수","block_class":"카인","block_level":"220","block_control_point":{"x":7,"y":-3},"block_position":[{"x":7,"y":-1},{"x":7,"y":-4},{"x":7,"y":-2},{"x":7,"y":-3}]},{"block_type":"전사","block_class":"데몬슬레이어","block_level":"225","block_control_point":{"x":-8,"y":6},"block_position":[{"x":-7,"y":5},{"x":-8,"y":5},{"x":-7,"y":6},{"x":-8,"y":6}]},{"block_type":"해적","block_class":"은월","block_level":"247","block_control_point":{"x":-10,"y":5},"block_position":[{"x":-11,"y":6},{"x":-10,"y":4},{"x":-11,"y":5},{"x":-10,"y":5}]},{"block_type":"마법사","block_class":"비숍","block_level":"250","block_control_point":{"x":-5,"y":-5},"block_position":[{"x":-5,"y":-4},{"x":-5,"y":-6},{"x":-6,"y":-5},{"x":-4,"y":-5},{"x":-5,"y":-5}]},{"block_type":"도적","block_class":"칼리","block_level":"231","block_control_point":{"x":9,"y":-1},"block_position":[{"x":8,"y":-2},{"x":10,"y":-1},{"x":8,"y":-1},{"x":9,"y":-1}]},{"block_type":"도적","block_class":"호영","block_level":"215","block_control_point":{"x":-8,"y":-6},"block_position":[{"x":-7,"y":-5},{"x":-9,"y":-6},{"x":-7,"y":-6},{"x":-8,"y":-6}]},{"block_type":"마법사","block_class":"라라","block_level":"220","block_control_point":{"x":3,"y":-1},"block_position":[{"x":3,"y":-2},{"x":2,"y":-1},{"x":4,"y":-1},{"x":3,"y":-1}]},{"block_type":"궁수","block_class":"패스파인더","block_level":"260","block_control_point":{"x":-4,"y":-9},"block_position":[{"x":-6,"y":-9},{"x":-2,"y":-9},{"x":-5,"y":-9},{"x":-3,"y":-9},{"x":-4,"y":-9}]}
+			 // Add more block data here...
+        ];
+
+        // Function to create blocks
+		function createBlock(x, y, className) {
+		            var block = document.createElement("div");
+		            block.className = "block " + className;
+		            block.style.left = (50 * (x + 11)) + "px";
+		            block.style.top = (50 * (10 - y)) + "px";
+		            document.querySelector(".map").appendChild(block);
+		        }
+		
+		        // Function to create empty blocks
+		        function createEmptyBlock(x, y) {
+		            var isEmpty = true;
+		            blockData.forEach(function(data) {
+		                data.block_position.forEach(function(pos) {
+		                    if (pos.x === x && pos.y === y) {
+		                        isEmpty = false;
+		                    }
+		                });
+		            });
+		            if (isEmpty) {
+		                var block = document.createElement("div");
+		                block.className = "empty-block";
+		                block.style.left = (50 * (x + 11)) + "px";
+		                block.style.top = (50 * (10 - y)) + "px";
+		                document.querySelector(".map").appendChild(block);
+		            }
+		        }
+		
+		        // Loop through block data and create blocks
+		        blockData.forEach(function(data) {
+		            var className = data.block_type.toLowerCase().replace(/\s/g, '-') + "-" + data.block_class.toLowerCase().replace(/\s/g, '-');
+		            data.block_position.forEach(function(pos) {
+		                createBlock(pos.x, pos.y, className);
+		            });
+		        });
+		
+		        // Loop through all positions on the map and create empty blocks where needed
+		        for (var i = -11; i <= 10; i++) {
+		            for (var j = -9; j <= 10; j++) {
+		                createEmptyBlock(i, j);
+		            }
+		        }
+		
+		        // Add borders only to blocks adjacent to blocks with different class names
+		        var blocks = document.querySelectorAll('.block');
+		        blocks.forEach(function(block) {
+		            var blockClass = block.className.split(' ')[1]; // Get the class name of the block
+		            var adjacentBlocks = document.querySelectorAll('.' + blockClass); // Get all blocks with the same class name
+		            adjacentBlocks.forEach(function(adjacentBlock) {
+		                if (adjacentBlock !== block) { // Skip if it's the same block
+		                    // Check if the adjacent block is adjacent to the current block
+		                    if (Math.abs(parseInt(block.style.left) - parseInt(adjacentBlock.style.left)) <= 50 &&
+		                        Math.abs(parseInt(block.style.top) - parseInt(adjacentBlock.style.top)) <= 50) {
+		                        block.style.border = 'none'; // Remove border from the current block
+		                    }
+		                }
+		            });
+		        });
+		    </script>
+</body>
+</html>
